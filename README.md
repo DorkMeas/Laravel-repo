@@ -1,58 +1,181 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# Laravel Employee CRUD
 
-## About Laravel
+A simple web-based Employee CRUD application built with **Laravel 13** and **PHP 8.3+**. This project demonstrates fundamental Create, Read, Update, and Delete (CRUD) operations using Laravel's MVC architecture, Eloquent ORM, Blade templates, and database migrations.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Project Status
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+**Completed**
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+This project has been completed and is no longer under active development. It is preserved as a practical learning project and a reference for fundamental Laravel application development.
 
-## Learning Laravel
+## Overview
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Laravel Employee CRUD is a web application for managing employee records. It provides basic functionality to create, display, update, and delete employee information.
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+The project focuses on understanding Laravel's core concepts, including routing, controllers, models, database interactions, form validation, and Blade templating.
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+## Features
 
-## Agentic Development
+- **Create Employee:** Add new employee records.
+- **View Employees:** Display employee information in a structured table.
+- **Update Employee:** Edit existing employee information.
+- **Delete Employee:** Remove employee records with confirmation.
+- **Form Validation:** Validate submitted data on the server.
+- **Database Integration:** Store and retrieve records using Eloquent ORM.
+- **Blade Templates:** Render dynamic HTML pages.
+- **Database Migrations:** Manage database table structures.
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+## Technology Stack
 
-```bash
-composer require laravel/boost --dev
+| Technology | Purpose |
+|---|---|
+| PHP 8.3+ | Backend programming language |
+| Laravel 13 | Web application framework |
+| Blade | Server-side templating engine |
+| Eloquent ORM | Database interaction |
+| SQLite / MySQL | Relational database |
+| HTML5 | Page structure |
 
-php artisan boost:install
+## Application Screenshots
+
+### Employee List
+
+![Employee List](docs/images/employee-list.png)
+
+### Create Employee
+
+![Create Employee](docs/images/create-employee.png)
+
+### Update Employee
+
+![Update Employee](docs/images/edit-employee.png)
+
+### Employee List - Last Updated
+![Employee List - Last Updated](docs/images/employee-list-last.png)
+
+## Project Structure
+
+```text
+laravel-employee-crud/
+├── app/
+│   ├── Http/
+│   │   └── Controllers/
+│   │       └── EmployeeController.php
+│   └── Models/
+│       └── Employee.php
+├── database/
+│   └── migrations/
+│       └── create_employees_table.php
+├── docs/
+│   ├── images/
+│   ├── installation.md
+│   └── project-overview.md
+├── public/
+├── resources/
+│   └── views/
+│       └── employee/
+│           ├── create.blade.php
+│           ├── edit.blade.php
+│           └── index.blade.php
+├── routes/
+│   └── web.php
+├── tests/
+├── .env.example
+├── artisan
+├── composer.json
+└── README.md
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+## Installation
 
-## Contributing
+See the [Installation Guide](docs/installation.md) for detailed setup instructions.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Quick Start
 
-## Code of Conduct
+```bash
+git clone https://github.com/DorkMeas/laravel-employee-crud.git
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+cd laravel-employee-crud
 
-## Security Vulnerabilities
+composer install
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+cp .env.example .env
 
-## License
+php artisan key:generate
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Configure the database, then run:
+
+```bash
+php artisan migrate
+
+php artisan serve
+```
+
+Open the application:
+
+```text
+http://127.0.0.1:8000
+```
+
+**Note:** Node.js and npm are not required to run the current Blade-based application.
+
+## Database Structure
+
+The application uses an `employees` table with the following columns:
+
+| Column | Description |
+|---|---|
+| `id` | Unique employee identifier |
+| `name` | Employee name |
+| `age` | Employee age |
+| `gender` | Employee gender |
+| `email` | Employee email address |
+| `position` | Employee job position |
+| `salary` | Employee salary |
+| `created_at` | Record creation timestamp |
+| `updated_at` | Last modification timestamp |
+
+## Application Routes
+
+| Method | URI | Description |
+|---|---|---|
+| GET | `/` | Redirect to employee listing |
+| GET | `/employee` | Display employees |
+| GET | `/employee/create` | Show employee creation form |
+| POST | `/employee/store` | Store a new employee |
+| GET | `/employee/{employee}/edit` | Show employee editing form |
+| PUT | `/employee/{employee}/update` | Update employee information |
+| DELETE | `/employee/{employee}/destroy` | Delete an employee |
+
+## Learning Objectives
+
+This project demonstrates practical knowledge of:
+
+- Laravel MVC architecture
+- Web routing and controllers
+- Eloquent ORM
+- Database migrations
+- Blade templating
+- HTTP request methods
+- Form handling and validation
+- Route model binding
+- CRUD operations
+
+## Documentation
+
+- [Installation Guide](docs/installation.md)
+- [Project Overview](docs/project-overview.md)
+
+## Author
+
+**Dork Meas**
+
+GitHub: [@DorkMeas](https://github.com/DorkMeas)
+
+---
+
+<p align="center">
+  Completed Laravel Learning Project
+</p>
